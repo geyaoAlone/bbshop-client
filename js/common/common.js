@@ -69,7 +69,7 @@
 	//sessionStorage.Authorization = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NTU2NTMyOTksInN1YiI6IntcImFnZW50SWRcIjpcIkdleWFvXCIsXCJvZW1JZFwiOlwib2VtMDAxXCJ9IiwiY3JlYXRlZCI6MTU1NTM5NDA5OTk5MX0.Xc1j7I9G_OVNytpI5MXVhqANEWU0dcrptgjIWDpfcy7qLbGeeVIcNOeRNa097LjTwhNrSyz0k3fdOrG7uf8atA'
 
 	 // 服务端请求地址
-	window.SERVER_URL =  CONTEXT_PATH; // http://10.10.10.141:8080/daishuWeb/;
+	window.SERVER_URL =  PROJECT_PATH; 
 	 
 	 // 请求超时时间
 	const REQ_TIMEOUT_SECONDS = 30000;

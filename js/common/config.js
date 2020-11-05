@@ -1,35 +1,33 @@
-// PROJECT_NAME 有端口号时  ？ 为本地环境或者测试环境 ： 生产环境 ； 
-var PROJECT_NAME = location.port && '/' || '/',
-    CONTEXT_PATH = location.protocol + '//' + location.host + "/daishuWeb/";
+ 
+var PROJECT_PATH = "/others/bbshop-client/";
 require.config({
-    baseUrl: CONTEXT_PATH,
+    baseUrl: PROJECT_PATH,
     paths: {
-        jquery: 'static/js/jquery/jquery-1.9.1.min',
-        jqtmpl: 'static/common/jquery-tmpl/jquery.tmpl.min',
-        bootstrap: 'static/common/bootstrap/bootstrap.min',
-        layui: 'static/common/layui/layui.all',
-        common: 'static/h5/js/common',
-        mescroll: 'static/common/mescroll/mescroll.min',
-        mobilesel: 'static/common/mobile-selector/mpicker.min',
-        layermobile: 'static/common/layer_mobile/layer',
-        mobileSelector: 'static/h5/js/mobileSelect',
-        swipeslider: 'static/h5/js/swipeslider/swipeslider',
-        jweixin: 'static/h5/js/jweixin-1.6.0/jweixin-1.6.0'
+        jquery: 'js/common/jquery.min',
+        jqtmpl: 'js/common/jquery.tmpl.min',
+        bootstrap: 'js/common/bootstrap/bootstrap.min',
+        layui: 'js/common/layui/layui.all',
+        common: 'js/common/common',
+        mescroll: 'js/common/mescroll/mescroll.min',
+        //mobilesel: 'static/common/mobile-selector/mpicker.min',
+        layermobile: 'js/common/layer_mobile/layer'
+        //mobileSelector: 'static/h5/js/mobileSelect',
+        //swipeslider: 'static/h5/js/swipeslider/swipeslider'    //轮播图插件
     },
     map: {
         '*': {
-            'css': CONTEXT_PATH + 'static/common/require/css.min.js'
+            'css': PROJECT_PATH + 'js/common/css.min.js'
         }
     },
     shim: {
-        bootstrap: {deps: ['css!' + CONTEXT_PATH + 'static/common/bootstrap/css/bootstrap.css', 'jquery',]},
+        bootstrap: {deps: ['css!' + PROJECT_PATH + 'js/common/bootstrap/css/bootstrap.css', 'jquery',]},
         jqtmpl: {deps: ['jquery']},
-        swipeslider: {deps: ['css!' + CONTEXT_PATH + 'static/h5/js/swipeslider/swipeslider.css']},
-        layui: {deps: ['css!' + CONTEXT_PATH + 'static/common/layui/css/modules/layer/default/layer.css', 'css!' + CONTEXT_PATH + 'static/common/layui/css/modules/code.css']},
-        mescroll: {deps: ['css!' + CONTEXT_PATH + 'static/common/mescroll/mescroll.min.css']},
-        layermobile: {deps: ['css!' + CONTEXT_PATH + 'static/common/layer_mobile/need/layer.css']},
-        mobilesel: {deps: ['jquery', 'css!' + CONTEXT_PATH + 'static/common/mobile-selector/css/mpicker.css']},
-        mobileSelector: {deps: ['css!' + CONTEXT_PATH + 'static/h5/css/mobileSelect.css']}
+        //swipeslider: {deps: ['css!' + CONTEXT_PATH + 'static/h5/js/swipeslider/swipeslider.css']},
+        layui: {deps: ['css!' + PROJECT_PATH + 'js/common/layui/css/modules/layer/default/layer.css', 'css!' + PROJECT_PATH + 'js/common/layui/css/modules/code.css']},
+        mescroll: {deps: ['css!' + PROJECT_PATH + 'js/common/mescroll/mescroll.min.css']},
+        layermobile: {deps: ['css!' + PROJECT_PATH + 'js/common/layer_mobile/need/layer.css']},
+        //mobilesel: {deps: ['jquery', 'css!' + CONTEXT_PATH + 'js/common/mobile-selector/css/mpicker.css']},
+        //mobileSelector: {deps: ['css!' + CONTEXT_PATH + 'static/h5/css/mobileSelect.css']}
     }
 
 
