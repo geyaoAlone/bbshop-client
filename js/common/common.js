@@ -69,7 +69,7 @@
 	//sessionStorage.Authorization = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NTU2NTMyOTksInN1YiI6IntcImFnZW50SWRcIjpcIkdleWFvXCIsXCJvZW1JZFwiOlwib2VtMDAxXCJ9IiwiY3JlYXRlZCI6MTU1NTM5NDA5OTk5MX0.Xc1j7I9G_OVNytpI5MXVhqANEWU0dcrptgjIWDpfcy7qLbGeeVIcNOeRNa097LjTwhNrSyz0k3fdOrG7uf8atA'
 
 	 // 服务端请求地址
-	window.SERVER_URL =  PROJECT_PATH; 
+	window.SERVER_URL =  "http://localhost:8801/"; 
 	 
 	 // 请求超时时间
 	const REQ_TIMEOUT_SECONDS = 30000;
@@ -100,10 +100,10 @@
 			return getParams(name);
 		},
 		link( page ) {
-			this.wait(0.2).then( () => location.href =  CONTEXT_PATH + 'static/rsh5/' + page );
+			this.wait(0.2).then( () => location.href =  PROJECT_PATH + '/' + page );
 		},
 		replace( page) {
-			this.wait(0.2).then( () => location.replace(   CONTEXT_PATH + 'static/rsh5/' + page ));
+			this.wait(0.2).then( () => location.replace(   PROJECT_PATH + '/' + page ));
 		},
          // 延迟执行带遮罩层 ，
          wait:function(second , msg) {
@@ -137,8 +137,8 @@
            		        dataType: 'json', 
            		        timeout : REQ_TIMEOUT_SECONDS,
            		        url: url,
-           		        data: param ,
-           		        //contentType: 'application/json',
+           		        data: JSON.stringify(param) ,
+           		        contentType: 'application/json;charset=UTF-8',
            		        headers: {'Authorization': sessionStorage.Authorization },
            		        success: function(res) {
            		        	typeof callback === 'function' && callback(res);
