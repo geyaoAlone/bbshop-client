@@ -8,10 +8,11 @@
 			c.post(  SERVER_URL  + 'user/login',{mobile:mobilePhone,validateCode:verifyCode} ).then( result => {
                 if(result.code != 1) return c.msg(result.msg);
                 var token = result.token;
-                if(!token){
+                if(!token || !result.user){
                     return c.msg('授权登陆失败');
                 }
-                sessionStorage.setItem("token",token);
+                localStorage.setItem("token",token);
+                localStorage.setItem("user",JSON.stringify(result.user));
                 sessionStorage.Authorization =  'Bearer ' + token;
                 c.link ('firstPage.html');
 			});

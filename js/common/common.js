@@ -100,10 +100,10 @@
 			return getParams(name);
 		},
 		link( page ) {
-			this.wait(0.2).then( () => location.href =  PROJECT_PATH + '/' + page );
+			this.wait(0.2).then( () => location.href =  PROJECT_PATH + page );
 		},
 		replace( page) {
-			this.wait(0.2).then( () => location.replace(   PROJECT_PATH + '/' + page ));
+			this.wait(0.2).then( () => location.replace(   PROJECT_PATH + page ));
 		},
          // 延迟执行带遮罩层 ，
          wait:function(second , msg) {
