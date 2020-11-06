@@ -7,14 +7,72 @@
 		<meta http-equiv="Expires" content="0">  
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Cache-control" content="no-cache">
-		<meta http-equiv="Cache" content="no-cache">
+        <meta http-equiv="Cache" content="no-cache">
+        <link rel="stylesheet" href="css/style.css"/>
 		<script type="text/javascript" src  = 'js/common/browser.js'></script>
 		<script type="text/javascript" src  = 'js/common/require.js'    ></script>
 		<script type="text/javascript" src  = 'js/common/config.js'   ></script>
 		<script type="text/javascript" src  = 'js/firstPage.js'   ></script>
-		<title>会员首页</title>
+        <title>会员首页</title>
+        <style>
+            .vip_lv{
+                color: #dba34b !important;
+            }
+            .step2_top{
+                position: fixed;
+                background: none;
+                border: none;
+            }
+            .esc{
+                margin-top: 1rem;
+            }
+            .esc h4{
+                text-align: center;
+                font-size: 0.6rem;
+                line-height: 1.6rem;
+                font-weight: normal;
+            }
+        </style>
 	</head>
 	<body>
-		<p>loadding...</p>
+		<div class="step2_top">
+            <div class="step2_topLeft">
+                <p backup></p>
+            </div>
+            <div class="step2_topCont">
+                <p style="color: #ffffff">我的</p>
+            </div>
+            <div class="step2_topRight">
+                <p style="color: #ffffff !important;" ></p>
+            </div>
+        </div>
+            <div class="per_top">
+                <div class="per_box">
+                    <div class="per_boxImg">
+                        <img src="images/txIcon.png">
+                    </div>
+                    <div class="per_info">
+                        <ul>
+                            <li class='name_li'>姓名：<span agentName></span><i class="vip_lv iconfont" vip_lv>立即开通</i></li>
+                            <li>手机号：<span mebile></span></li>
+                            <li class='certNo_li'>证件号：<span certNo></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="per_list">
+                <ul>
+                    <li class="repay-history">
+                        <h3>记录</h3>
+                        <i class="iconfont ">&#xe6a7;</i>
+                    </li>
+    
+                    <li class="esc" esc>
+                        <h4>退出登录</h4>
+    
+                    </li>
+
+                </ul>
+            </div>
 	</body>
 </html>
