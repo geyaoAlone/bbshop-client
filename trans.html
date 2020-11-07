@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1,maximum-scale=1,user-scalable=no"> 
+		<meta http-equiv="Expires" content="0">  
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+        <meta http-equiv="Cache" content="no-cache">
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/weui.css"/>
+        <link rel="stylesheet" href="css/withdraw.css"/>
+		<script type="text/javascript" src  = 'js/common/browser.js'></script>
+		<script type="text/javascript" src  = 'js/common/require.js'    ></script>
+		<script type="text/javascript" src  = 'js/common/config.js'   ></script>
+		<script type="text/javascript" src  = 'js/trans.js'   ></script>
+        <title>交易录入</title>
+        <style>
+            .infos {
+                font-size: 0.50rem;
+                color: #999999;
+                float: right;
+                margin-top: 2px;
+                margin-right: 20px;
+            }
+            .infos span {
+                color: #ea3f40;
+            }
+        </style>
+	</head>
+	<body>
+        <div class="step2_top">
+			<div class="step2_topLeft repay_histNewLeft">
+				<p backup_1>返回</p>
+			</div>
+			<div class="repay_hist repay_histNew">
+				<p tab    data-item=2    class="repay_histTab" >消费</p>
+				<a tab 	  data-item=1  >充值</a>
+			</div>
+			<div class="step2_topRight repay_histNewRight">
+				<p></p>
+			</div>
+		</div>
+		<div class="reContent" style="margin-top: 0.4rem;">
+            <ul>
+                <li>
+                    <p>选择会员</p>
+                    <p class="repayArea" id="trigger1">请点击选择会员</p>
+                    <input id="trigger4" style="text-align: right; color: #000000;"placeholder="提示语..."/>
+                </li>
+            </ul>
+        </div> 
+        <p class="infos">该会员还有<span balance></span>元</p>
+	    <div class="reContent" style="margin-top: 1rem;">
+            <ul>
+                <li>
+                    <p>选择产品</p>
+                    <p class="repayArea" id="trigger2">请点击选择消费产品</p>
+                    <input id="trigger4" style="text-align: right; color: #000000;"placeholder="提示语..."/>
+                </li>
+            </ul>
+        </div> 
+
+
+		<button class="btn_primary" save-btn>确认</button>
+				
+				
+	</body>
+</html>

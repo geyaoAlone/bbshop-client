@@ -1,5 +1,5 @@
  
-var PROJECT_PATH = "/others/bbshop-client/";
+var PROJECT_PATH = "/Users/geyao/webStorm-workspace/bbshop-client/";
 require.config({
     baseUrl: PROJECT_PATH,
     paths: {
@@ -10,8 +10,8 @@ require.config({
         common: 'js/common/common',
         mescroll: 'js/common/mescroll/mescroll.min',
         //mobilesel: 'static/common/mobile-selector/mpicker.min',
-        layermobile: 'js/common/layer_mobile/layer'
-        //mobileSelector: 'static/h5/js/mobileSelect',
+        layermobile: 'js/common/layer_mobile/layer',
+        mobileSelector: 'js/common/mobileSelect'
         //swipeslider: 'static/h5/js/swipeslider/swipeslider'    //轮播图插件
     },
     map: {
@@ -27,7 +27,7 @@ require.config({
         mescroll: {deps: ['css!' + PROJECT_PATH + 'js/common/mescroll/mescroll.min.css']},
         layermobile: {deps: ['css!' + PROJECT_PATH + 'js/common/layer_mobile/need/layer.css']},
         //mobilesel: {deps: ['jquery', 'css!' + CONTEXT_PATH + 'js/common/mobile-selector/css/mpicker.css']},
-        //mobileSelector: {deps: ['css!' + CONTEXT_PATH + 'static/h5/css/mobileSelect.css']}
+        mobileSelector: {deps: ['css!' + PROJECT_PATH + 'css/mobileSelect.css']}
     }
 
 

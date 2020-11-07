@@ -36,6 +36,10 @@
         $('[today]').click(  e => c.link ('today.html'));
         $('[product]').click(  e => c.link ('product.html'));
         $('[customer]').click(  e => c.link ('customer.html'));
+        $('[esc]').click(  e => {
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+            c.link ('login.html')});
 
 		
 	});
