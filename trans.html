@@ -31,18 +31,24 @@
         </style>
 	</head>
 	<body>
-        <div class="step2_top">
-			<div class="step2_topLeft repay_histNewLeft">
-				<p backup_1>返回</p>
-			</div>
-			<div class="repay_hist repay_histNew">
-				<p tab    data-item=2    class="repay_histTab" >消费</p>
-				<a tab 	  data-item=1  >充值</a>
-			</div>
-			<div class="step2_topRight repay_histNewRight">
-				<p></p>
-			</div>
-		</div>
+        <div class="step2_topLeft">
+            <p backup_1>返回</p>
+        </div>
+        <div class="step2_topCont">
+            <p>交易录入</p>
+        </div>
+        <div class="step2_topRight">
+            <p style="color: #ffffff !important;" ></p>
+        </div>
+        <div class="reContent" style="margin-top: 0.4rem;">
+            <ul>
+                <li>
+                    <p>选择交易类型</p>
+                    <p class="repayArea" id="trigger0">点击选择交易类型</p>
+                    <input id="trigger4" style="text-align: right; color: #000000;"placeholder="提示语..."/>
+                </li>
+            </ul>
+        </div> 
 		<div class="reContent" style="margin-top: 0.4rem;">
             <ul>
                 <li>
@@ -52,8 +58,9 @@
                 </li>
             </ul>
         </div> 
-        <p class="infos">该会员还有<span balance></span>元</p>
-	    <div class="reContent" style="margin-top: 1rem;">
+        <p class="infos blan">该会员还有<span balance></span>元</p>
+
+	    <div class="reContent prod" style="margin-top: 1rem;">
             <ul>
                 <li>
                     <p>选择产品</p>
@@ -62,7 +69,7 @@
                 </li>
             </ul>
         </div> 
-
+        <div><p>交易金额：</p><input type="number" amount />元</div>
 
 		<button class="btn_primary" save-btn>确认</button>
 				

@@ -5,7 +5,9 @@
         var s = localStorage.getItem("user");
         var user = {userId:"VIP***",mobile:"13888*****8"};
         if(s){
-           s = JSON.parse(s);
+            user = JSON.parse(s);
+        }else{
+            console.info(user);
         }
 
         c.get(  SERVER_URL  + 'deal/firstPageData').then( result => {
