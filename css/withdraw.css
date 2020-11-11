@@ -1,0 +1,85 @@
+body {
+    background-color: #EDEDED;
+    font-size: 0.56rem;
+    margin: 0;
+}
+
+.weui-cell {
+    margin-top: 0.6rem;
+    background-color: #fff;
+    padding: 0.4rem 0.6rem;
+}
+
+.weui-cell__bd {
+    margin-left: 0.6rem;
+}
+
+.bank-icon {
+    width: 1.28rem;
+    height: 1.28rem;
+}
+
+.bank-desc {
+    color: #999999;
+}
+
+.withdraw-content {
+    margin-top: 0.6rem;
+    background-color: #fff;
+    padding: 0.6rem 0.6rem 0.4rem 0.6rem;
+}
+
+.withdraw-content .weui-cell {
+    padding: 0;
+}
+
+.weui-cell:before {
+    display: none;
+}
+
+.withdraw-content .weui-cell__hd {
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.withdraw-content .weui-cell__bd {
+    margin-left: 0.2rem;
+    font-size: 1.5rem;
+    line-height: 1rem;
+}
+
+.withdraw-content .weui-cell {
+    border-bottom: solid 1px #E7E7E7;
+}
+
+.withdraw-content-tip {
+    margin-top: 0.4rem;
+    color: #999999;
+    font-size: 0.64rem;
+}
+
+.withdraw-content-tip-error {
+    color: #d81e06;
+}
+
+.btn_primary {
+    border: none;
+    border-radius: 0.2rem;
+    color: #fff;
+    font-size: 0.64rem;
+    background-color: #409eff;
+    width: calc(100% - 1.2rem);
+    margin: 0.8rem 0.6rem;
+    padding: 0.4rem 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.btn_primary:focus {
+    outline: 0;
+}
+
+.btn_primary:hover {
+    background-color: #4093f2;
+}
