@@ -27,49 +27,63 @@
             .infos span {
                 color: #ea3f40;
             }
-            
+            .amt {
+                width: 10rem;
+                line-height: 1.4rem;
+            }
         </style>
 	</head>
 	<body>
-        <div class="step2_topLeft">
-            <p backup_1>返回</p>
-        </div>
-        <div class="step2_topCont">
-            <p>交易录入</p>
-        </div>
-        <div class="step2_topRight">
-            <p style="color: #ffffff !important;" ></p>
-        </div>
-        <div class="reContent" style="margin-top: 0.4rem;">
+
+        <div class="step2_top">
+            <div class="step2_topLeft">
+                <p backup_1>返回</p>
+            </div>
+            <div class="step2_topCont">
+                <p>交易录入</p>
+            </div>
+            <div class="step2_topRight">
+                <p style="color: #ffffff !important;" ></p>
+            </div>
+		</div>
+        
+        <div class="reContent" style="margin-top: 0.8rem;">
             <ul>
                 <li>
                     <p>选择交易类型</p>
                     <p class="repayArea" id="trigger0">点击选择交易类型</p>
-                    <input id="trigger4" style="text-align: right; color: #000000;"placeholder="提示语..."/>
+                   
                 </li>
             </ul>
         </div> 
-		<div class="reContent" style="margin-top: 0.4rem;">
+
+	    <div class="reContent" style="margin-top: 0.8rem;">
             <ul>
                 <li>
                     <p>选择会员</p>
                     <p class="repayArea" id="trigger1">请点击选择会员</p>
-                    <input id="trigger4" style="text-align: right; color: #000000;"placeholder="提示语..."/>
                 </li>
             </ul>
         </div> 
-        <p class="infos blan">该会员还有<span balance></span>元</p>
+        <div class="infos">该会员还有<span balance>0</span>元</div> 
 
-	    <div class="reContent prod" style="margin-top: 1rem;">
+	    <div class="reContent" style="margin-top: 1.5rem;">
             <ul>
                 <li>
                     <p>选择产品</p>
                     <p class="repayArea" id="trigger2">请点击选择消费产品</p>
-                    <input id="trigger4" style="text-align: right; color: #000000;"placeholder="提示语..."/>
                 </li>
             </ul>
-        </div> 
-        <div><p>交易金额：</p><input type="number" amount />元</div>
+        </div>
+        <div class="withdraw-content" style="margin-top: 0.8rem;">
+            <div class="withdraw-content-title">金额</div>
+            <div class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd">￥</div>
+                <div class="weui-cell__bd weui-flex">
+                    <input id="js_input" class="weui-input" type="number" amount/>
+                </div>
+            </div>
+        </div>
 
 		<button class="btn_primary" save-btn>确认</button>
 				

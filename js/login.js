@@ -11,6 +11,7 @@
                 if(!token || !result.user){
                     return c.msg('授权登陆失败');
                 }
+                console.info(token)
                 localStorage.setItem("token",token);
                 localStorage.setItem("user",JSON.stringify(result.user));
                 sessionStorage.Authorization =  'Bearer ' + token;

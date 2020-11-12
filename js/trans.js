@@ -10,8 +10,6 @@
                 c.link ('firstPage.html');
            }
         }
-        $('.blan').hide();
-        $('.prod').hide();
 
         $('.step2_topLeft').click(e => c.link('firstPage.html'));
         
@@ -21,7 +19,7 @@
             trigger: '#trigger0',
             title: '交易类型选择',
             wheels: [
-                        {data: ['充值','消费']}
+                        {data:['充值','消费']}
                     ],
             position:[0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
             transitionEnd:function(indexArr, data){
@@ -33,12 +31,12 @@
                 }
                 if('消费' == data[0]){
                     trans.type = 2;
-                    $('.prod').show();
+                    
                 }
                 
             }
         });
-
+        
         c.get(  SERVER_URL  + 'deal/transPageData?type=2').then( result => {
             if(result.code != 1) return c.msg(result.msg);
             var mobileSelect1 = new MobileSelect({
@@ -55,18 +53,17 @@
                     var cust = result.userInfo[data[0]];
                     console.log(cust)
                     $('[balance]').text(cust.balance);
-                    $('.blan').show()
                     trans.userId = cust.userId;
                     trans.mobile = cust.mobile;
                     
                 }
             });
-
+            
             var mobileSelect2 = new MobileSelect({
                 trigger: '#trigger2',
                 title: '消费产品选择',
                 wheels: [
-                            {data: result.ptrList}
+                            {data: result.productList}
                         ],
                 position:[0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
                 transitionEnd:function(indexArr, data){
@@ -84,6 +81,7 @@
   
                 }
             });
+            
             
         });
 
@@ -107,7 +105,7 @@
                 if(result.code != 1) return c.msg(result.msg);
                 if(result.data){
                      c.msg('录入交易成功');
-                     c.link ('trans.html');
+                    
                 }else{
                     return c.msg('录入交易失败！联系管理员');
                 }

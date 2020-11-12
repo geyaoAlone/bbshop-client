@@ -18,18 +18,24 @@
             var array = result.data || [];
             array.forEach(element => {
                 recordHtml += `
-                    <div class="withList">
-                    <div class="withList_top">
-                        <h3>${element.productName}</h3>
-                        <span>${element.productType}</span>
-                    </div>
-                    <div class="withCont">
-                        <h3>￥${element.productAmt}</h3>
-                    </div>
-                    <div class="withFoot withFoot_fail">
-                        <p>${element.createTime}</p>
-                    </div>
-                </div>
+                <div class="repay_histList " >
+					<div class="repay_histList_title">
+						<h3><span>${element.productName}</span></h3>
+						<i><a href="">废弃</a></i>
+					</div>
+					<div class="reContent repay_histListCont repay_histListCont1">
+						<ul>
+							<li>
+								<p>金额</p>
+								<span>￥${element.productAmt}元</span>
+							</li>
+						</ul>
+					</div>
+					<div class="repay_histListBottom repay_histListBottom1">
+						<p>创建时间</p>
+						<span>${element.createTime}</span>
+					</div>
+				</div>
                 `
             });
             $('.withBox').prepend(recordHtml);
