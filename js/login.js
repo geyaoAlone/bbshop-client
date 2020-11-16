@@ -7,13 +7,14 @@
             if(!/^\d{6}$/.test(verifyCode) ) return c.msg('请输入6位短信验证码');
 			c.post(  SERVER_URL  + 'user/login',{mobile:mobilePhone,validateCode:verifyCode} ).then( result => {
                 if(result.code != 1) return c.msg(result.msg);
-                var token = result.token;
-                if(!token || !result.user){
+                var data = result.data;
+                var token = data.token;
+                if(!token || !data.user){
                     return c.msg('授权登陆失败');
                 }
                 console.info(token)
                 localStorage.setItem("token",token);
-                localStorage.setItem("user",JSON.stringify(result.user));
+                localStorage.setItem("user",JSON.stringify(data.user));
                 sessionStorage.Authorization =  'Bearer ' + token;
                 c.link ('firstPage.html');
 			});

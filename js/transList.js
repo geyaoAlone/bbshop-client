@@ -1,7 +1,6 @@
-
 ( () => {
-	require(['common'] ,c => {
-        $('.step2_topLeft').click(e => c.link('firstPage.html'));
+	require(['common','mobileSelector'] ,(c , MobileSelect ) => {
+        let mobile = c.getRequest('mobile');
         var s = localStorage.getItem("user");
        
         if(s){
@@ -11,12 +10,15 @@
                 c.link ('firstPage.html');
            }
         }
-        let mobile = c.getRequest('mobile');
+
+        $('.step2_topLeft').click(e => c.link('firstPage.html'));
+
         if(mobile == null || mobile == 'null'){
             mobile = '';
         }
+
         var recordHtml = '';
-        c.get(  SERVER_URL  + 'deal/userInfo?cMobile=' + mobile).then( result => {
+        c.get(  SERVER_URL  + 'deal/transList?cMobile=' + mobile).then( result => {
             if(result.code != 1) return c.msg(result.msg);
 
             var array = result.data || [];
@@ -24,27 +26,31 @@
                 recordHtml += `
                 <div class="repay_histList " >
 					<div class="repay_histList_title">
-						<h3><span>${element.mobile}</span>（${element.userId}）</h3>
-						<i><a href="javascript:;" onclick="detail('${element.mobile}')">详情>></a></i>
-					</div>
+                        <h3><span>${element.id} </span></h3>`;
+                        if(1 == element.transType){
+                            recordHtml += `<i class="label_1">充值</i>`;
+                            
+                        }
+                        if(2 == element.transType){
+                            recordHtml += `<i class="label_2">消费</i>`;
+                            
+                        }
+
+					recordHtml += `</div>
 					<div class="reContent repay_histListCont repay_histListCont1">
-						<ul>
+                        <ul>
+                            <li>
+								<p>产品信息：</p>
+								<span>${element.productName}</span>
+                            </li>
 							<li>
-								<p>剩余金额：</p>
-								<span>￥${element.balanceFmt}元</span>
+								<p>交易金额：</p>
+								<span class="amt">￥${element.amountFmt}元</span>
                             </li>
-                            <li>
-								<p>历史充值：</p>
-								<span>${element.statistic.totalItems_1}笔/${element.statistic.totalAmount_1}元</span>
-                            </li>
-                            <li>
-								<p>历史消费：</p>
-								<span>${element.statistic.totalItems_2}笔/${element.statistic.totalAmount_2}元</span>
-							</li>
 						</ul>
 					</div>
 					<div class="repay_histListBottom repay_histListBottom1">
-						<p>最后交易时间</p>
+						<p>交易时间</p>
 						<span>${element.timeFmt}</span>
 					</div>
 				</div>
@@ -53,10 +59,6 @@
             $('.withBox').prepend(recordHtml);
 
         });
-
-
-        detail = function(mobile){
-            c.link ('transList.html?mobile='+ mobile);
-        }
     });
+
 })()

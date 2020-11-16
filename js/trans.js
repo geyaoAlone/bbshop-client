@@ -27,10 +27,10 @@
             },
             callback:function(indexArr, data){
                 if('充值' == data[0]){
-                    trans.type = 1;
+                    trans.transType = 1;
                 }
                 if('消费' == data[0]){
-                    trans.type = 2;
+                    trans.transType = 2;
                     
                 }
                 
@@ -43,14 +43,14 @@
                 trigger: '#trigger1',
                 title: 'VIP会员选择',
                 wheels: [
-                            {data: result.strList}
+                            {data: result.data.strList}
                         ],
                 position:[0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
                 transitionEnd:function(indexArr, data){
                     console.log(data);
                 },
                 callback:function(indexArr, data){
-                    var cust = result.userInfo[data[0]];
+                    var cust = result.data.userInfo[data[0]];
                     console.log(cust)
                     $('[balance]').text(cust.balance);
                     trans.userId = cust.userId;
@@ -63,14 +63,14 @@
                 trigger: '#trigger2',
                 title: '消费产品选择',
                 wheels: [
-                            {data: result.productList}
+                            {data: result.data.productList}
                         ],
                 position:[0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
                 transitionEnd:function(indexArr, data){
                     console.log(data);
                 },
                 callback:function(indexArr, data){
-                    var product = result.productInfo[data[0]];
+                    var product = result.data.productInfo[data[0]];
                     
                     $('[amount]').val(product.productAmt);
 
@@ -88,7 +88,7 @@
 
         $('[save-btn]').click(e => {
             trans.amount = $('[amount]').val();
-            if(!trans.type){
+            if(!trans.transType){
                 return c.msg('先选择交易类型');
             }
             if(!trans.mobile || !trans.userId){
@@ -105,7 +105,7 @@
                 if(result.code != 1) return c.msg(result.msg);
                 if(result.data){
                      c.msg('录入交易成功');
-                    
+                     setTimeout( () =>  c.link ('customer.html?mobile=' + trans.mobile) ,1000);
                 }else{
                     return c.msg('录入交易失败！联系管理员');
                 }
