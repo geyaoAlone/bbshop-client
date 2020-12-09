@@ -26,11 +26,14 @@
                 console.log(data);
             },
             callback:function(indexArr, data){
+                console.log(data);
                 if('充值' == data[0]){
                     trans.transType = 1;
+                    $('.proSelect').hide();
                 }
                 if('消费' == data[0]){
                     trans.transType = 2;
+                    $('.proSelect').show();
                     
                 }
                 
@@ -58,7 +61,7 @@
                     
                 }
             });
-            
+
             var mobileSelect2 = new MobileSelect({
                 trigger: '#trigger2',
                 title: '消费产品选择',
@@ -76,11 +79,12 @@
 
                     trans.productId = product.id;
                     trans.productName = product.productName;//产品名
-                   
+                
 
-  
+
                 }
             });
+            
             
             
         });
@@ -94,7 +98,7 @@
             if(!trans.mobile || !trans.userId){
                 return c.msg('先选择客户');
             }
-            if(!trans.productId || !trans.productName){
+            if(trans.transType ==2 && (!trans.productId || !trans.productName)){
                 return c.msg('先选择产品');
             }
             if(!trans.amount){

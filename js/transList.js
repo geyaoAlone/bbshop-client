@@ -22,36 +22,34 @@
             if(result.code != 1) return c.msg(result.msg);
 
             var array = result.data || [];
+            console.info(array)
             array.forEach(element => {
                 recordHtml += `
                 <div class="repay_histList " >
 					<div class="repay_histList_title">
-                        <h3><span>${element.id} </span></h3>`;
+                        <h3>`;
                         if(1 == element.transType){
-                            recordHtml += `<i class="label_1">充值</i>`;
+                            recordHtml += `<p class="green_p">充值</p>`;
                             
                         }
                         if(2 == element.transType){
-                            recordHtml += `<i class="label_2">消费</i>`;
+                            recordHtml += `<p  class="red_p">购买（${element.productName}）</p>`;
                             
                         }
 
-					recordHtml += `</div>
+					recordHtml += `</h3></div>
 					<div class="reContent repay_histListCont repay_histListCont1">
                         <ul>
                             <li>
-								<p>产品信息：</p>
-								<span>${element.productName}</span>
-                            </li>
-							<li>
-								<p>交易金额：</p>
 								<span class="amt">￥${element.amountFmt}元</span>
-                            </li>
-						</ul>
+                            </li> 
+                        </ul>
 					</div>
 					<div class="repay_histListBottom repay_histListBottom1">
-						<p>交易时间</p>
-						<span>${element.timeFmt}</span>
+						<p></p>
+                        <span>${element.timeFmt}</span>
+                        <p></p>
+						<span>${element.id}</span>
 					</div>
 				</div>
                 `
