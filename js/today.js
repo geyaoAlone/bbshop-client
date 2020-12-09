@@ -14,8 +14,13 @@
         var recordHtml = '';
         c.get(  SERVER_URL  + 'deal/getTodayRecord').then( result => {
             if(result.code != 1) return c.msg(result.msg);
-            var header =`<li>累计充值(` + result.data.statistic.totalItems_1 + `笔)：<span>` + result.data.statistic.totalAmount_1 +`元</span></li>
-                            <li>累计消费(` + result.data.statistic.totalItems_2 + `笔)：<span amt>` + result.data.statistic.totalAmount_2 +`元</span></li>`;
+            var statistic = result.data.statistic;
+            var totalItems_1 = statistic.totalItems_1 ? statistic.totalItems_1 :'0';
+            var totalAmount_1 = statistic.totalAmount_1 ? statistic.totalAmount_1 :'0.00';
+            var totalItems_2 = statistic.totalItems_2 ? statistic.totalItems_2 :'0';
+            var totalAmount_2 = statistic.totalAmount_2 ? statistic.totalAmount_2 :'0.00';
+            var header =`<li>累计充值(` + totalItems_1 + `笔)：<span>` + totalAmount_1 +`元</span></li>
+                            <li>累计消费(` + totalItems_2 + `笔)：<span amt>` + totalAmount_2 +`元</span></li>`;
             $('.per_info ul').html(header);
             var array = result.data.trans || [];
             array.forEach(element => {
