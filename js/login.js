@@ -25,33 +25,17 @@
                 fn = function(e) {
                     e.preventDefault();
                     if(!flag)  return void 0;
-                    var codeType = $('#codeType').val();
+
                     var mobilePhone = $('#mobilePhone').val();
                     if(typeof mobilePhone == "undefined" || mobilePhone == null || mobilePhone == ""){
                         return c.msg('请输入手机号');
                     }
-                    if( !/^\d{11}$/.test(mobilePhone)  ) return c.msg('请填入正确的手机号');
-                    c.post(SERVER_URL  + 'daishu/login/sendPreVerifyCode',{merchNo,utmc,mobilePhone,codeType,step:'login'}).then( result => {
-                        if( +result.code != 1) {
-                            if (result.message == 'sendVcode') {
-                                layui.layer.open({
-                                    title:['验证码','padding: 0; text-align: center;'],
-                                    closeBtn :false,
-                                    area:["auto","140px"],
-                                    shadeClose: true,
-                                    type: 2,
-                                    content:SERVER_URL+'static/h5/verify_code.html?mobilePhone='+mobilePhone,
-                                    anim: 'up',
-                                });
-                                setTimeout(function() {
-                                    var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
-                                    window.scrollTo(0, Math.max(scrollHeight - 1, 0));
-                                }, 100);
-                                return false;
-                            }
-                            return c.msg(result.message);
+                    
+                    if( !/^\d{11}$/.test(mobilePhone)) return c.msg('请填入正确的手机号');
+                    c.get(SERVER_URL  + 'user/sendCode/'+mobilePhone).then( result => {
+                        if(result.code != 1 || !result.data) {
+                             return c.msg("短信验证码获取失败");
                         }else{
-                            $("#codeType").val("");
                             flag  =   false;
                             $('[getverifycode]').addClass('payfee_yzmColor');
                             let interval = setInterval( () => {
