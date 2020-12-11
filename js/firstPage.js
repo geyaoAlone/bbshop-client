@@ -61,12 +61,14 @@
             if(user.role == '99'){
                 $('.pwd_setting').show();
                 var statistic =  result.data.statistic;
-                header += `<li>尊贵的店主：<span>` + user.userId + `</span></li>
-                            <li>手机号：<span> ` + user.mobile + `</span></li>
-                            <li>累计充值(` + statistic.totalItems_1 + `笔)：<span>` + statistic.totalAmount_1 +`元</span></li>
-                            <li>累计消费(` + statistic.totalItems_2 + `笔)：<span amt>` + statistic.totalAmount_2 +`元</span></li>`;
+                header += `<li>欢迎店主&nbsp;<span>` + user.userId + `</span>~</li>`;
             }
             $('.per_info ul').html(header);
+           $('.max_info ul').html(`<li>小店总入账&nbsp;<span class="amt">` + statistic.totalAmount_1 +`</span>(` + statistic.totalItems_1 + `笔)</li>
+            <li>小店总支出&nbsp;<span class="amt" amt>` + statistic.totalAmount_2 +`元</span>(` + statistic.totalItems_2 + `笔)</li>
+        
+          `);
+            
         });
 
         $('[trans]').click(  e => c.link ('trans.html'));
