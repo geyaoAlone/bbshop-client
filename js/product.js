@@ -27,12 +27,12 @@
 						<ul>
 							<li>
 								<p>金额</p>
-								<span>￥${element.productAmt}元</span>
+								<span class="amt">￥${element.productAmt}元</span>
 							</li>
 						</ul>
 					</div>
 					<div class="repay_histListBottom repay_histListBottom1">
-						<p>创建时间</p>
+						<p></p>
 						<span>${element.timeFmt}</span>
 					</div>
 				</div>

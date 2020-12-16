@@ -17,9 +17,12 @@
             var header = ``;
             //普通会员
             if(user.role == '1'){
-                header +=  `<li>会员号：<span>` + user.userId + `</span></li>
-                    <li>手机号：<span> ` + user.mobile + `</span></li>
-                    <li>可用金额：<span>` + user.balance + `元</span></li>`;
+                    var balance = user.balance;
+                    header += `<li >欢迎会员&nbsp;<span>` + user.mobile + `</span>~</li>`;
+                    $('.max_info ul').html(`<li>您的会员号：<span>` + user.userId +`</span></li>
+                    <li>您的充值余额：<span class="amt" amt>￥` + balance +`</span></li>
+                  `);
+                    $('.welcome').html(header);
                 var recordHtml = '<div class="title"><span>▶&ensp;</span>近期充值、消费记录</div>';
                 var array = result.data.trans || [];
                 if(array.length > 0){
@@ -59,15 +62,18 @@
 
             //店家
             if(user.role == '99'){
+                $('.title_namme').text('店主管理中心')
                 $('.pwd_setting').show();
                 var statistic =  result.data.statistic;
                 header += `<li>欢迎店主&nbsp;<span>` + user.userId + `</span>~</li>`;
+                $('.max_info ul').html(`<li>会员累计充值&nbsp;<span class="amt">￥` + statistic.totalAmount_1 +`</span>(` + statistic.totalItems_1 + `笔)</li>
+                <li>会员累计消费&nbsp;<span class="amt" amt>￥` + statistic.totalAmount_2 +`</span>(` + statistic.totalItems_2 + `笔)</li>
+              `);
+              $('.welcome').html(header);
             }
-            $('.per_info ul').html(header);
-           $('.max_info ul').html(`<li>小店总入账&nbsp;<span class="amt">` + statistic.totalAmount_1 +`</span>(` + statistic.totalItems_1 + `笔)</li>
-            <li>小店总支出&nbsp;<span class="amt" amt>` + statistic.totalAmount_2 +`元</span>(` + statistic.totalItems_2 + `笔)</li>
-        
-          `);
+            
+      
+  
             
         });
 

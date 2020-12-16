@@ -31,21 +31,21 @@
 						<ul>
 							<li>
 								<p>剩余金额：</p>
-								<span>￥${element.balanceFmt}元</span>
+								<span class="amt">￥${element.balanceFmt}</span>
                             </li>
                             <li>
 								<p>历史充值：</p>
-								<span>${element.statistic.totalItems_1}笔/${element.statistic.totalAmount_1}元</span>
+								<span class="amt">￥${element.statistic.totalAmount_1}</span>(${element.statistic.totalItems_1}笔)
                             </li>
                             <li>
 								<p>历史消费：</p>
-								<span>${element.statistic.totalItems_2}笔/${element.statistic.totalAmount_2}元</span>
+								<span class="amt">￥${element.statistic.totalAmount_2}</span>(${element.statistic.totalItems_2}笔)
 							</li>
 						</ul>
 					</div>
 					<div class="repay_histListBottom repay_histListBottom1">
-						<p>最后交易时间</p>
-						<span>${element.timeFmt}</span>
+						
+						<span><p>最后一次交易时间</p>${element.timeFmt}</span>
 					</div>
 				</div>
                 `

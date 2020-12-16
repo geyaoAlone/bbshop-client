@@ -2910,3 +2910,41 @@ line-height: 3rem;
 .layui-layer-btn1{
 	font-size:0.6rem;
 }
+
+
+.del a{
+	color: #ea3f40;
+}
+.amt{
+	font-size: 0.7rem;
+	color: orange !important;
+}
+.green_p{
+	font-size: 0.7rem !important;
+	color: green !important;
+	float: left;
+	
+}
+.red_p{
+	font-size: 0.7rem !important;
+	color: #ea3f40 !important;
+	float: left;
+}
+.repay_histList_title {
+	height: 1.6rem;
+}
+.repay_histList_title h3 {
+	height: 1.6rem;
+}
+.repay_histListBottom {
+	font-size: 0.5rem !important;
+	height: 1.6rem;
+}
+.botm{
+	color: #10aeff;
+	margin: 0 0.4rem;
+}
+.botm .right{
+	color: black;
+	float: right;
+}

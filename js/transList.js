@@ -26,30 +26,28 @@
             array.forEach(element => {
                 recordHtml += `
                 <div class="repay_histList " >
-					<div class="repay_histList_title">
-                        <h3>`;
-                        if(1 == element.transType){
-                            recordHtml += `<p class="green_p">充值</p>`;
-                            
-                        }
-                        if(2 == element.transType){
-                            recordHtml += `<p  class="red_p">购买（${element.productName}）</p>`;
-                            
-                        }
-
-					recordHtml += `</h3></div>
+					
 					<div class="reContent repay_histListCont repay_histListCont1">
                         <ul>
-                            <li>
-								<span class="amt">￥${element.amountFmt}元</span>
-                            </li> 
+                            <li>`;
+                            if(1 == element.transType){
+                                recordHtml += `<span class="green_p">充值</span>
+                                	<span class="amt">+¥${element.amountFmt}</span>`;
+                            }
+                            if(2 == element.transType){
+                                recordHtml += `<span  class="red_p">${element.productName}</span>
+                                <span class="amt">-¥${element.amountFmt}</span>`;
+                                
+                            }
+                            
+                            recordHtml += ` </li> 
                         </ul>
 					</div>
-					<div class="repay_histListBottom repay_histListBottom1">
-						<p></p>
+					<div class="botm">
+				
                         <span>${element.timeFmt}</span>
-                        <p></p>
-						<span>${element.id}</span>
+                      
+						<span class="right">${element.id}</span>
 					</div>
 				</div>
                 `
