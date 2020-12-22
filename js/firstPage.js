@@ -17,7 +17,7 @@
             var header = ``;
             //普通会员
             if(user.role == '1'){
-                    var balance = user.balance;
+                    var balance = c.amountFormat((user.balance).toString());
                     header += `<li >欢迎会员&nbsp;<span>` + user.mobile + `</span>~</li>`;
                     $('.max_info ul').html(`<li>您的会员号：<span>` + user.userId +`</span></li>
                     <li>您的充值余额：<span class="amt" amt>￥` + balance +`</span></li>
@@ -31,23 +31,15 @@
                         recordHtml += `<div class="repay_histList " >
                             <div class="reContent repay_histListCont repay_histListCont1">`;
         
-                            if(1 == element.transType){
+                        
                                 recordHtml += `<ul>
                                     <li class='big'>
-                                        <p><span style="color: red;">${1 == element.transType?'充值':'消费'}</span></p><span>￥${element.amountFmt}元</span>
+                                        <p><span class=${1 == element.transType?'green_p':'red_p'}>${1 == element.transType?'充值':element.productName}</span></p><span class="amt">${1 == element.transType?'+':'-'}￥${element.amountFmt}元</span>
                                     </li>
-                                </ul>`;
-                            } else {
-                                recordHtml += `<ul>
-                                    <li>
-                                        <p>产品</p><span>${element.productName}</span>
-                                    </li>
-                                </ul>`;
-                            }
-                                
-                            recordHtml += `</div>
+                                </ul>
+                                </div>
                                 <div class="repay_histListBottom repay_histListBottom1">
-                                    <p>发生时间</p>
+                                    <p></p>
                                     <span>${element.timeFmt}</span>
                                 </div>
                             </div>`;
