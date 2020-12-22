@@ -9,10 +9,12 @@
 					console.info('token is past!')
 					c.msg(result.msg);
 					c.link ('login.html');
+				}else{
+					sessionStorage.Authorization =  'Bearer ' + token;
+					console.info('token is ok!')
+					c.link ('firstPage.html');
 				}
-				sessionStorage.Authorization =  'Bearer ' + token;
-				console.info('token is ok!')
-				c.link ('firstPage.html');
+				
 			});
 		}else{
 			console.info('no token!')
